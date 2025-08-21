@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Павел Рябчиков — законное списание долгов | Банкротство физических лиц</title>
+    <meta name="description" content="Законное списание долгов по 127-ФЗ. Бесплатная консультация онлайн. Павел Рябчиков — помогу остановить коллекторов, сохранить имущество и списать долги." />
+    <link rel="preconnect" href="https://fonts.googleapis.com  ">
+    <link rel="preconnect" href="https://fonts.gstatic.com  " crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:#0b0f0d; /* тёмный фон */
+            --fg:#e9f7f0; /* светлый текст */
+            --muted:#a7b5ad; /* вторичный текст */
+            --brand:#11a55a; /* зелёный (основа) */
+            --brand-2:#0cc26d; /* акцентный зелёный */
+            --brand-3:#062e1e; /* глубокий зелёный для фона */
+            --card:#101512; /* карточки */
+            --stroke:#1d2a23; /* обводки */
+            --danger:#e74c3c; /* для подчёркиваний */
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin:0;
+            padding:0;
+            background:var(--bg);
+            color:var(--fg);
+            font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+        }
+        
+        a {
+            color:inherit;
+            text-decoration:none;
+        }
+        
+        .wrap {
+            max-width:1120px;
+            margin:0 auto;
+            padding:0 20px;
+        }
+        
+        /* ---------- HERO ---------- */
+        .hero {
+            position:relative;
+            min-height:92vh;
+            display:grid;
+            align-items:center;
+            overflow:hidden;
+        }
+        
+        .hero::before{
+            /* фон-фото */
+            content:"";
+            position:absolute;
+            inset:0;
+            background: url('./images/hero.jpg') center/cover no-repeat;
+            filter: saturate(0.9) brightness(0.6);
+            transform: scale(1.06);
+            will-change: transform;
+            transition: transform 1.2s ease;
+        }
+        
+        .hero::after{
+            /* градиентная вуаль */
+            content:"";
+            position:absolute;
+            inset:0;
+            background: radial-gradient(70% 60% at 20% 20%, rgba(17,165,90,0.32), transparent 60%), linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.8));
+        }
+        
+        .hero-inner {
+            position:relative;
+            z-index:2;
+            padding:64px 0;
+        }
+        
+        .badge {
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            padding:8px 14px;
+            border:1px solid #184332;
+            border-radius:999px;
+            background: rgba(6,46,30,0.55);
+            color:#c7f9df;
+            font-weight:600;
+            font-size:14px;
+            letter-spacing:.2px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .title {
+            font-size: clamp(36px, 5vw, 64px);
+            line-height:1.05;
+            font-weight:800;
+            margin:18px 0 14px;
+            text-shadow: 0 10px 30px rgba(0,0,0,.35);
+        }
+        
+        .subtitle {
+            font-size: clamp(16px,2.3vw,20px);
+            color:#d8efe4;
+            max-width:760px;
+            opacity:.95;
+        }
+        
+        .cta {
+            display:flex;
+            gap:14px;
+            margin-top:28px;
+            flex-wrap:wrap;
+        }
+        
+        .btn {
+            position:relative;
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            padding:14px 20px;
+            border-radius:14px;
+            font-weight:700;
+            letter-spacing:.2px;
+            border:1px solid transparent;
+            cursor:pointer;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        
+        .btn-primary {
+            background:linear-gradient(180deg, var(--brand), var(--brand-2));
+            color:#03150e;
+            box-shadow:0 10px 28px rgba(17,165,90,.35), inset 0 1px 0 rgba(255,255,255,.45);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:0 14px 36px rgba(17,165,90,.45);
+        }
+        
+        .btn-ghost {
+            background:rgba(16,21,18,.75);
+            border-color:#294438;
+            color:#cdeee0;
+        }
+        
+        .btn-ghost:hover{
+            border-color:var(--brand-2);
+            transform: translateY(-2px);
+        }
+        
+        /* плавающие элементы */
+        .float {
+            position:absolute;
+            border-radius:20px;
+            filter: blur(4px);
+            opacity:.28;
+            mix-blend-mode: screen;
+            animation: drift 10s ease-in-out infinite alternate;
+        }
+        
+        .f1 {
+            width:240px;
+            height:240px;
+            background: radial-gradient(60% 60% at 50% 50%, #0cc26d, transparent);
+            top:5%;
+            right:5%;
+            animation-delay: .2s;
+        }
+        
+        .f2 {
+            width:320px;
+            height:320px;
+            background: radial-gradient(60% 60% at 50% 50%, #11a55a, transparent);
+            bottom:0;
+            left:10%;
+            animation-delay: .8s;
+        }
+        
+        @keyframes drift {
+            from { transform: translateY(0) translateX(0) rotate(0deg); }
+            to { transform: translateY(-14px) translateX(10px) rotate(6deg); }
+        }
+        
+        /* ---------- NAV ---------- */
+        .nav {
+            position:fixed;
+            top:14px;
+            left:0;
+            right:0;
+            z-index:50;
+        }
+        
+        .nav-inner {
+            border:1px solid #224235;
+            background: rgba(9,16,13,.7);
+            backdrop-filter: blur(8px);
+            border-radius:16px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:10px 14px;
+        }
+        
+        .logo {
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-weight:800;
+            letter-spacing:.3px;
+        }
+        
+        .logo-mark {
+            width:28px;
+            height:28px;
+            border-radius:8px;
+            background:linear-gradient(180deg, var(--brand), var(--brand-2));
+            box-shadow: 0 8px 18px rgba(17,165,90,.5);
+        }
+        
+        .nav-links {
+            display:flex;
+            gap:14px;
+            flex-wrap:wrap;
+        }
+        
+        .nav-links a {
+            padding:8px 12px;
+            border-radius:10px;
+            color:#cfece1;
+            border:1px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            border-color:#2b5946;
+            background:#0b1b14;
+        }
+        
+        /* ---------- SECTIONS ---------- */
+        section {
+            padding:72px 0;
+        }
+        
+        .section-title {
+            font-size: clamp(26px,3.4vw,36px);
+            margin:0 0 16px;
+            font-weight:800;
+        }
+        
+        .muted {
+            color:var(--muted);
+        }
+        
+        .grid {
+            display:grid;
+            gap:18px;
+        }
+        
+        @media(min-width:900px){
+            .grid-3{ grid-template-columns: repeat(3, 1fr);}
+            .grid-2{ grid-template-columns: 1fr 1fr; }
+        }
+        
+        .card {
+            background:linear-gradient(180deg, #0d1411, #0a120f);
+            border:1px solid var(--stroke);
+            border-radius:18px;
+            padding:20px;
+            position:relative;
+            overflow:hidden;
+        }
+        
+        .card:hover{
+            border-color:#2b5946;
+        }
+        
+        .features .icon {
+            width:38px;
+            height:38px;
+            display:grid;
+            place-items:center;
+            border-radius:10px;
+            background: radial-gradient(100% 100% at 0% 0%, #0cc26d 0%, #0a6b41 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+            margin-bottom:8px;
+        }
+        
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            display:flex;
+            gap:12px;
+            align-items:flex-start;
+        }
+        
+        .step .num {
+            counter-increment: step;
+            width:34px;
+            height:34px;
+            border-radius:10px;
+            background:#0e2a1f;
+            color:#9be7c1;
+            display:grid;
+            place-items:center;
+            font-weight:800;
+            border:1px solid #1e4f3b;
+            margin-top:3px;
+        }
+        
+        /* ---------- REVIEWS ---------- */
+        .reviews {
+            overflow:hidden;
+        }
+        
+        .slider {
+            display:flex;
+            gap:16px;
+            animation: slide 28s linear infinite;
+        }
+        
+        .slide {
+            min-width:320px;
+            max-width:360px;
+        }
+        
+        @keyframes slide {
+            0%{ transform: translateX(0);}
+            100%{ transform: translateX(-50%);}
+        }
+        
+        /* Модификация для отзывов */
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--stroke);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid var(--brand);
+        }
+        
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .review-stars {
+            display: flex;
+            gap: 2px;
+            margin-top: 6px;
+        }
+        
+        .review-stars svg {
+            width: 16px;
+            height: 16px;
+            fill: #FFD700;
+            stroke: #FFA500;
+            stroke-width: 1;
+        }
+        
+        /* ---------- FORM ---------- */
+        .form {
+            background:linear-gradient(180deg, #0a120f, #08100d);
+            border:1px solid var(--stroke);
+            border-radius:18px;
+            padding:24px;
+        }
+        
+        .row {
+            display:grid;
+            gap:12px;
+            grid-template-columns:1fr;
+        }
+        
+        @media(min-width:720px){
+            .row{ grid-template-columns: 1fr 1fr; }
+        }
+        
+        label {
+            font-size:14px;
+            color:#b8d8cb;
+        }
+        
+        input, textarea {
+            width:100%;
+            padding:14px 14px;
+            border-radius:12px;
+            border:1px solid #244336;
+            background:#0b1411;
+            color:#eaf7f0;
+            outline:none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        
+        input:focus, textarea:focus{
+            border-color:#2b8a5a;
+            box-shadow:0 0 0 3px rgba(17,165,90,.18);
+        }
+        
+        textarea{
+            min-height:110px;
+            resize: vertical;
+        }
+        
+        /* ---------- FOOTER ---------- */
+        footer {
+            padding:40px 0 60px;
+            border-top:1px solid #13221b;
+            color:#a8c8ba;
+        }
+        
+        .socials {
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        
+        .soc {
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            padding:10px 14px;
+            border:1px solid #224235;
+            border-radius:12px;
+            background:#0c1411;
+        }
+        
+        .soc:hover{
+            border-color:#2b5946;
+            background:#0b1b14;
+        }
+        
+        /* ---------- REVEAL ---------- */
+        .reveal {
+            opacity:0;
+            transform: translateY(12px);
+            transition: all .7s ease;
+        }
+        
+        .reveal.visible {
+            opacity:1;
+            transform: translateY(0);
+        }
+        
+        /* ---------- MAP SECTION ---------- */
+        .map-section {
+            background: var(--card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--stroke);
+        }
+        
+        .map-container {
+            height: 400px;
+            width: 100%;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .address-info {
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid var(--stroke);
+        }
+        
+        .address-title {
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 8px;
+        }
+        
+        /* ---------- VIDEO SECTION ---------- */
+        .video-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-placeholder {
+            background: var(--card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--stroke);
+            padding: 30px;
+            position: relative;
+        }
+        
+        .video-placeholder::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(17,165,90,0.05), transparent);
+            z-index: 0;
+        }
+        
+        .video-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .video-text h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--brand);
+        }
+        
+        .video-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .video-frame {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-weight: 500;
+        }
+        
+        /* ---------- FLOATING CHAT ---------- */
+        .floating-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+        
+        .chat-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        
+        .chat-btn.telegram {
+            background: #0088cc;
+            color: white;
+        }
+        
+        .chat-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(38, 143, 255, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(38, 143, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(38, 143, 255, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="wrap nav-inner">
+            <div class="logo"><span class="logo-mark"></span> Павел Рябчиков</div>
+            <div class="nav-links">
+                <a href="#about">Обо мне</a>
+                <a href="#map">Наш офис</a>
+                <a href="#benefits">Плюсы</a>
+                <a href="#process">Как это работает</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#apply" class="btn btn-primary" style="padding:8px 14px;">Оставить заявку</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- HERO -->
+    <header class="hero" id="top">
+        <div class="float f1"></div>
+        <div class="float f2"></div>
+        <div class="wrap hero-inner">
+            <span class="badge">127‑ФЗ • законное списание долгов • по всей России</span>
+            <h1 class="title">Банкротство физических лиц<br/>— законно, онлайн, под ключ</h1>
+            <p class="subtitle">Остановим коллекторов, сохраним имущество и законно спишем долги. Бесплатная консультация: разберу, подойдёт ли процедура в вашей ситуации.</p>
+            <div class="cta">
+                <a class="btn btn-primary" href="#apply">Получить консультацию</a>
+                <a class="btn btn-ghost" href="https://t.me/Pavel_RyabchikovBot" target="_blank" rel="noopener">Написать в Telegram‑бот</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- ABOUT -->
+        <section id="about" class="reveal">
+            <div class="wrap grid grid-2">
+                <div>
+                    <h2 class="section-title">Обо мне</h2>
+                    <p class="muted">Я — Павел Андреевич Рябчиков. Помогаю законно списывать долги по 127‑ФЗ, защищать от коллекторов и сохранять ключевое имущество. Работаю онлайн по всей России.</p>
+                    <div class="grid grid-3" style="margin-top:16px;">
+                        <div class="card"><strong style="font-size:28px; color:#9cf1c9;">300+ </strong><div class="muted">клиентов в 2025</div></div>
+                        <div class="card"><strong style="font-size:28px; color:#9cf1c9;">4–6 мес.</strong><div class="muted">средний срок списания</div></div>
+                        <div class="card"><strong style="font-size:28px; color:#9cf1c9;">100% </strong><div class="muted">всё онлайн</div></div>
+                    </div>
+                </div>
+                <div class="card" style="min-height:320px; background:url('./images/about.jpg') center/cover no-repeat;border-color:#204736;"></div>
+            </div>
+        </section>
+        
+        <!-- MAP SECTION -->
+        <section id="map" class="reveal">
+            <div class="wrap">
+                <h2 class="section-title">Наш офис в Магнитогорске</h2>
+                <div class="map-section">
+                    <div class="map-container">
+                        <!-- Карта Яндекса для Магнитогорска -->
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4c5d1c7c2c0c9c9b4d0e5e5d5e5d5e5d5&source=constructor" frameborder="0"></iframe>
+                    </div>
+                    <div class="address-info">
+                        <div class="address-title">Наш адрес:</div>
+                        <p>г. Магнитогорск, пр-кт 140, офис ФЦБ</p>
+                        <p>График работы: Пн-Пт с 9:00 до 18:00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- VIDEO SECTION -->
+        <section id="video" class="video-section reveal">
+            <div class="wrap">
+                <div class="video-placeholder">
+                    <div class="video-content">
+                        <div class="video-text">
+                            <h3>Процедура банкротства — является ЕДИНСТВЕННЫМ законным способом списания долгов*</h3>
+                            <p>Получите бесплатную консультацию юриста по Вашей проблеме прямо сейчас</p>
+                            <a href="#apply" class="btn btn-primary">Оставить заявку на консультацию</a>
+                        </div>
+                        <div class="video-frame">
+                            Видео о процедуре банкротства
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- BENEFITS -->
+        <section id="benefits" class="features reveal">
+            <div class="wrap">
+                <h2 class="section-title">Что даёт процедура</h2>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="icon">📵</div>
+                        <h3>Тишина от коллекторов</h3>
+                        <p class="muted">С первого дня подачи заявления — жёсткие ограничения на звонки и визиты.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🏠</div>
+                        <h3>Сохраняем жильё</h3>
+                        <p class="muted">Единственное жильё под защитой, если оно не в залоге (ст. 446 ГПК РФ).</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">✅</div>
+                        <h3>Списание навсегда</h3>
+                        <p class="muted">Через 4–6 месяцев долгов не остаётся — живёте с чистого листа.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PROCESS -->
+        <section id="process" class="reveal">
+            <div class="wrap">
+                <h2 class="section-title">Как всё проходит</h2>
+                <div class="grid grid-2 steps">
+                    <div class="card step"><div class="num"></div><div><strong>Заявка</strong><div class="muted">Оставляете контакты — перезваниваем в день обращения.</div></div></div>
+                    <div class="card step"><div class="num"></div><div><strong>Консультация</strong><div class="muted">Проверяем условия: МФЦ или суд. Объясняем пошагово.</div></div></div>
+                    <div class="card step"><div class="num"></div><div><strong>Подготовка</strong><div class="muted">Собираем документы, оформляем заявления, подаём в суд.</div></div></div>
+                    <div class="card step"><div class="num"></div><div><strong>Списание долгов</strong><div class="muted">Контролируем этапы до результата. Долги списаны — точка.</div></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- REVIEWS -->
+        <section id="reviews" class="reviews reveal">
+            <div class="wrap">
+                <h2 class="section-title">Отзывы клиентов</h2>
+                <div class="slider">
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Не хватало на проживание»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Стало проще жить уже в процессе: оставался прожиточный минимум, коллекторы перестали давить.</p>
+                    </div>
+                    
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Боялся, но решился»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Все шаги объяснили, сомнения ушли. Через 5 месяцев — долги списаны.</p>
+                    </div>
+                    
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Работают уверенные люди»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Команда вселила доверие, всё шло по порядку. Результат — чистый лист.</p>
+                    </div>
+                    
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Сохранили жильё»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Единственная квартира — неприкосновенна. Процедура прошла спокойно.</p>
+                    </div>
+                    
+                    <!-- продублированы для бесконечного слайдера -->
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Не хватало на проживание»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Стало проще жить уже в процессе: оставался прожиточный минимум, коллекторы перестали давить.</p>
+                    </div>
+                    
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Боялся, но решился»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Все шаги объяснили, сомнения ушли. Через 5 месяцев — долги списаны.</p>
+                    </div>
+                    
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Работают уверенные люди»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Команда вселила доверие, всё шло по порядку. Результат — чистый лист.</p>
+                    </div>
+                    
+                    <div class="card slide">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <!-- Фото будет добавлено здесь -->
+                            </div>
+                            <div>
+                                <strong>«Сохранили жильё»</strong>
+                                <div class="review-stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.7-1.64 7.03z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="muted">Единственная квартира — неприкосновенна. Процедура прошла спокойно.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- APPLY -->
+        <section id="apply" class="reveal">
+            <div class="wrap grid grid-2" style="align-items:center;">
+                <div>
+                    <h2 class="section-title">Оставить заявку</h2>
+                    <p class="muted">Заполните форму — и получите бесплатную консультацию. Мы свяжемся в ближайшее время. Можно сразу перейти в Telegram‑бот и начать диалог.</p>
+                    <div style="display:flex; gap:12px; margin:14px 0 24px; flex-wrap:wrap;">
+                        <a class="btn btn-primary" href="https://t.me/Pavel_RyabchikovBot" target="_blank" rel="noopener">Открыть Telegram‑бот</a>
+                        <a class="btn btn-ghost" href="https://vk.com/bankrotstvotro_mgn" target="_blank" rel="noopener">Написать в VK</a>
+                    </div>
+                    <div class="form">
+                        <form id="leadForm">
+                            <div class="row">
+                                <div>
+                                    <label for="name">Ваше имя</label>
+                                    <input id="name" name="name" placeholder="Иван" required>
+                                </div>
+                                <div>
+                                    <label for="phone">Телефон или Telegram</label>
+                                    <input id="phone" name="phone" placeholder="@username или +7…" required>
+                                </div>
+                            </div>
+                            <div style="margin-top:12px;">
+                                <label for="msg">Комментарий (необязательно)</label>
+                                <textarea id="msg" name="msg" placeholder="Коротко о ситуации…"></textarea>
+                            </div>
+                            <div style="display:flex; gap:12px; align-items:center; margin-top:16px; flex-wrap:wrap;">
+                                <button class="btn btn-primary" type="submit">Отправить</button>
+                                <a class="btn btn-ghost" href="mailto:lead@example.com?subject=Заявка%20на%20банкротство&body=Здравствуйте,%20хочу%20консультацию." title="Если не хотите через форму — можно написать на почту">Написать на e‑mail</a>
+                            </div>
+                            <small class="muted" style="display:block; margin-top:10px;">Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.</small>
+                        </form>
+                    </div>
+                </div>
+                <div class="card" style="min-height:360px; background:url('./images/apply.jpg') center/cover no-repeat; border-color:#204736;"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="wrap" style="display:flex; flex-direction:column; gap:16px;">
+            <div class="socials">
+                <a class="soc" href="https://vk.com/bankrotstvotro_mgn" target="_blank" rel="noopener" aria-label="VK">
+                    <span>VK</span>
+                </a>
+                <a class="soc" href="https://www.instagram.com/ryabchikovp" target="_blank" rel="noopener" aria-label="Instagram">
+                    <span>Instagram</span>
+                </a>
+                <a class="soc" href="https://www.tiktok.com/@ryabchikovpavel" target="_blank" rel="noopener" aria-label="TikTok">
+                    <span>TikTok</span>
+                </a>
+                <a class="soc" href="https://t.me/Pavel_RyabchikovBot" target="_blank" rel="noopener" aria-label="Telegram Bot">
+                    <span>Telegram‑бот</span>
+                </a>
+            </div>
+            <div class="muted">© <span id="year"></span> Павел Рябчиков. Законное списание долгов по 127‑ФЗ. Работаем по всей России. Не является публичной офертой.</div>
+        </div>
+    </footer>
+    
+    <!-- FLOATING CHAT -->
+    <div class="floating-chat">
+        <a href="https://wa.me/89995709169" class="chat-btn whatsapp" aria-label="WhatsApp">
+            <i>💬</i>
+        </a>
+        <a href="https://t.me/Pavel_RyabchikovBot" class="chat-btn telegram" aria-label="Telegram">
+            <i>✈️</i>
+        </a>
+    </div>
+    
+    <script>
+        // Параллакс для фона hero
+        const hero = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY * 0.08;
+            hero.style.setProperty('--par', y + 'px');
+            hero.style.transform = `translateY(${y * 0.2}px)`;
+        });
+        
+        // Reveal-анимация при прокрутке
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        
+        document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+        
+        // Год в подвале
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Отправка в Telegram-бот через start-параметр (без раскрытия токена)
+        // Бот должен уметь обрабатывать payload после /start
+        const form = document.getElementById('leadForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = encodeURIComponent(document.getElementById('name').value.trim());
+            const phone = encodeURIComponent(document.getElementById('phone').value.trim());
+            const msg = encodeURIComponent(document.getElementById('msg').value.trim());
+            const payload = `lead|name=${name}|contact=${phone}|msg=${msg}`;
+            const url = `https://t.me/Pavel_RyabchikovBot?start=${payload}`;
+            window.location.href = url; // откроет Telegram с заполненными данными
+        });
+    </script>
+</body>
+</html>
